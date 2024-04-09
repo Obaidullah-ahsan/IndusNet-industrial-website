@@ -1,8 +1,16 @@
+import { Link, NavLink } from "react-router-dom";
+
 const Navbar = () => {
   const navLinks = (
     <>
       <li>
-        <a>Item 3</a>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink to="/updateprofile">Update Profile</NavLink>
+      </li>
+      <li>
+        <NavLink to="/userprofile">User profile</NavLink>
       </li>
     </>
   );
@@ -33,7 +41,7 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-2xl font-bold">IndusNet</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
@@ -51,7 +59,7 @@ const Navbar = () => {
             />
           </div>
         </div>
-        <a className="btn">Button</a>
+        <Link to="/login" className="btn">Login</Link>
       </div>
     </div>
   );
