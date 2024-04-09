@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import loginSvg from "/women vector.jpg";
 
 const Login = () => {
   return (
     <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse gap-10">
         <div className="text-center lg:text-left w-[50%]">
-          <img src={loginSvg} alt="" />
+          <img src="https://i.ibb.co/dfyvhrn/women-vector.jpg" alt="" />
         </div>
         <div className="card shrink-0 w-full max-w-lg shadow-xl bg-base-100 rounded-none">
           <h1 className="text-4xl font-bold text-center mx-auto">Login now!</h1>
@@ -35,13 +34,13 @@ const Login = () => {
                 required
               />
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
+                <a className="label-text-alt link link-hover">
                   Forgot password?
                 </a>
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary font-bold text-lg">Login</button>
             </div>
             <p className="flex justify-between items-center">
               New here?
