@@ -7,6 +7,9 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
+        <NavLink to="/about">About</NavLink>
+      </li>
+      <li>
         <NavLink to="/updateprofile">Update Profile</NavLink>
       </li>
       <li>
@@ -15,7 +18,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 px-6">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -41,7 +44,9 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-2xl font-bold">IndusNet</Link>
+        <Link to="/" className="btn btn-ghost text-2xl font-bold">
+          IndusNet
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
@@ -59,7 +64,12 @@ const Navbar = () => {
             />
           </div>
         </div>
-        <Link to="/login" className="btn">Login</Link>
+        <Link
+          to="/login"
+          className="btn bg-[#587187] text-white font-bold text-base"
+        >
+          Login
+        </Link>
       </div>
     </div>
   );

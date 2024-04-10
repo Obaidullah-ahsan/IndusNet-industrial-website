@@ -60,7 +60,7 @@ const Register = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary font-bold text-lg">Register</button>
+              <button className="btn bg-[#4583A8] text-white font-bold text-lg">Register</button>
             </div>
             <p className="font-semibold">
               Already have an account? Please

@@ -40,7 +40,7 @@ const Login = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary font-bold text-lg">Login</button>
+              <button className="btn bg-[#4583A8] text-white font-bold text-lg">Login</button>
             </div>
             <p className="flex justify-between items-center">
               New here?

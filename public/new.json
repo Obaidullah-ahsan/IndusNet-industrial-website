@@ -1,0 +1,87 @@
+[
+  {
+    "image": "https://i.ibb.co/NpgwfT4/warehouse-5635000-1280.jpg",
+    "estate_title": "Warehouse",
+    "id": "WH003",
+    "segment_name": "Industrial",
+    "description": "Comprehensive warehouse complex ideal for distribution, storage, and manufacturing.",
+    "price": "$3,800,000",
+    "status": "Rent",
+    "area": "100,000 sqft",
+    "location": "Industrial Park, Oakville",
+    "facilities": [
+      "Racking systems",
+      "Heavy-duty flooring",
+      "Security fencing",
+      "Sprinkler system"
+    ]
+  },
+  {
+    "image": "https://i.ibb.co/y6DJP5Q/factory.jpg",
+    "estate_title": "Modern Manufacturing Facility",
+    "id": "FAC001",
+    "segment_name": "Industrial",
+    "description": "State-of-the-art manufacturing facility equipped with advanced machinery and technology.",
+    "price": "$5,000,000",
+    "status": "Available",
+    "area": "150,000 sqft",
+    "location": "Industrial Park, Springfield",
+    "facilities": [
+      "Production lines",
+      "Warehousing space",
+      "Quality control labs",
+      "Employee amenities"
+    ]
+  },
+  {
+    "image": "https://i.ibb.co/5L0ySSD/industrial-park-7432144-1920.jpg",
+    "estate_title": "Green Industrial Park",
+    "id": "IP002",
+    "segment_name": "Industrial",
+    "description": "An eco-friendly industrial park designed with sustainability in mind.",
+    "price": "$15,000,000",
+    "status": "Under Development",
+    "area": "300 acres",
+    "location": "Eco Zone, Portland",
+    "facilities": [
+      "Solar panels",
+      "Water recycling systems",
+      "Bike lanes",
+      "Community gardens"
+    ]
+  },
+  {
+    "image": "https://i.ibb.co/JtjwkR1/nuclear-power-plant-4535760-1920.jpg",
+    "estate_title": "Power Station",
+    "id": "PP003",
+    "segment_name": "Industrial",
+    "description": "A hydroelectric power station harnessing the power of water to generate electricity.",
+    "price": "$60,000,000",
+    "status": "Available",
+    "area": "2000 acres",
+    "location": "River Basin, Oregon",
+    "facilities": [
+      "Turbine generators",
+      "Dam infrastructure",
+      "Water intake structures",
+      "Transmission lines"
+    ]
+  },
+  {
+    "image": "https://i.ibb.co/9pBDjgx/production-plant.jpg",
+    "estate_title": "Manufacturing Plant",
+    "id": "PP001",
+    "segment_name": "Industrial",
+    "description": "A cutting-edge automobile manufacturing plant equipped with advanced robotics and assembly lines.",
+    "price": "$100,000,000",
+    "status": "Available",
+    "area": "500,000 sqft",
+    "location": "Automotive Zone, Detroit",
+    "facilities": [
+      "Assembly lines",
+      "Paint booths",
+      "Quality control labs",
+      "Employee training centers"
+    ]
+  }
+]
