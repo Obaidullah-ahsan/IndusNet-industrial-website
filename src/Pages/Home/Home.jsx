@@ -4,7 +4,6 @@ import ServiceCard from "../../Components/ServiceCard/ServiceCard";
 
 const Home = () => {
   const services = useLoaderData();
-  console.log(services);
   return (
     <div>
       <Banner></Banner>

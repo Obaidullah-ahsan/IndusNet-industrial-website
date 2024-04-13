@@ -1,7 +1,21 @@
 import { Link } from "react-router-dom";
-
+import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    const { email, password } = data;
+    createUser(email,password)
+    .then(result => {
+      console.log(result.user);
+    })
+    .catch(error => console.log(error))
+  };
   return (
     <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse gap-10">
@@ -9,8 +23,10 @@ const Register = () => {
           <img src="https://i.ibb.co/gvH64MK/men-vector.jpg" alt="" />
         </div>
         <div className="card shrink-0 w-full max-w-lg shadow-xl bg-base-100 rounded-none">
-          <h1 className="text-4xl font-bold text-center mx-auto">Register now!</h1>
-          <form className="card-body pb-3">
+          <h1 className="text-4xl font-bold text-center mx-auto">
+            Register now!
+          </h1>
+          <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-3">
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-semibold">Name</span>
@@ -21,6 +37,7 @@ const Register = () => {
                 placeholder="Name"
                 className="input input-bordered"
                 required
+                {...register("name")}
               />
             </div>
             <div className="form-control">
@@ -29,10 +46,11 @@ const Register = () => {
               </label>
               <input
                 type="text"
-                name="photo"
+                name="photourl"
                 placeholder="Photo URL"
                 className="input input-bordered"
                 required
+                {...register("photourl")}
               />
             </div>
             <div className="form-control">
@@ -45,6 +63,7 @@ const Register = () => {
                 placeholder="email"
                 className="input input-bordered"
                 required
+                {...register("email")}
               />
             </div>
             <div className="form-control">
@@ -57,10 +76,13 @@ const Register = () => {
                 placeholder="password"
                 className="input input-bordered"
                 required
+                {...register("password")}
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-[#4583A8] text-white font-bold text-lg">Register</button>
+              <button className="btn bg-[#4583A8] text-white font-bold text-lg">
+                Register
+              </button>
             </div>
             <p className="font-semibold">
               Already have an account? Please

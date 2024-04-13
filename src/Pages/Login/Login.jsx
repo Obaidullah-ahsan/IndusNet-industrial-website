@@ -1,6 +1,14 @@
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  // const { createUser } = useContext(AuthContext);
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    const { email, password } = data;
+  };
   return (
     <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse gap-10">
@@ -9,7 +17,7 @@ const Login = () => {
         </div>
         <div className="card shrink-0 w-full max-w-lg shadow-xl bg-base-100 rounded-none">
           <h1 className="text-4xl font-bold text-center mx-auto">Login now!</h1>
-          <form className="card-body pb-3">
+          <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-3">
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-semibold">Email</span>
@@ -20,6 +28,7 @@ const Login = () => {
                 placeholder="email"
                 className="input input-bordered"
                 required
+                {...register("eemail")}
               />
             </div>
             <div className="form-control">
@@ -32,6 +41,7 @@ const Login = () => {
                 placeholder="password"
                 className="input input-bordered"
                 required
+                {...register("password")}
               />
               <label className="label">
                 <a className="label-text-alt link link-hover">
@@ -40,7 +50,9 @@ const Login = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-[#4583A8] text-white font-bold text-lg">Login</button>
+              <button className="btn bg-[#4583A8] text-white font-bold text-lg">
+                Login
+              </button>
             </div>
             <p className="flex justify-between items-center">
               New here?
@@ -51,8 +63,12 @@ const Login = () => {
           </form>
           <p className="text-center mx-auto font-semibold">Login with</p>
           <div className="flex gap-10 justify-around px-10 my-5">
-            <button className="btn btn-outline btn-primary flex-1 ">Google</button>
-            <button className="btn btn-outline btn-secondary flex-1">Github</button>
+            <button className="btn btn-outline btn-primary flex-1 ">
+              Google
+            </button>
+            <button className="btn btn-outline btn-secondary flex-1">
+              Github
+            </button>
           </div>
         </div>
       </div>

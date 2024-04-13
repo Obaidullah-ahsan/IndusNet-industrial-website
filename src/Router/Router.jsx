@@ -6,6 +6,7 @@ import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import About from "../Pages/About us/About";
+import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () =>
+          fetch("https://obaidullah-ahsan.github.io/b9a9-jasondata/new.json"),
+      },
+      {
+        path: "/service/:id",
+        element: <ServiceDetails></ServiceDetails>,
         loader: () =>
           fetch("https://obaidullah-ahsan.github.io/b9a9-jasondata/new.json"),
       },
