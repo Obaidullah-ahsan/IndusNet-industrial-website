@@ -1,6 +1,11 @@
+import { Helmet } from "react-helmet-async";
+
 const About = () => {
   return (
     <section>
+      <Helmet>
+        <title>About - IndusNet</title>
+      </Helmet>
       <h2 className="text-3xl text-center mx-auto font-bold py-6 my-3 rounded-2xl bg-[#1313130D]">
         About Us
       </h2>

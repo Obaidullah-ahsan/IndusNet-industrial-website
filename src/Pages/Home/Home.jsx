@@ -1,11 +1,15 @@
 import Banner from "../../Components/Banner/Banner";
 import { useLoaderData } from "react-router-dom";
 import ServiceCard from "../../Components/ServiceCard/ServiceCard";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const services = useLoaderData();
   return (
     <div>
+      <Helmet>
+        <title>Home - IndusNet</title>
+      </Helmet>
       <Banner></Banner>
       <div className="text-center mx-auto md:max-w-3xl mb-10">
         <h2 className="text-4xl font-bold mb-4">Our Service</h2>

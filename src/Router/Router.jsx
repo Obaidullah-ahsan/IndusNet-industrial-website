@@ -9,7 +9,6 @@ import About from "../Pages/About us/About";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import PrivateRoutes from "../Routes/PrivateRoutes";
 import UpdateProfile from "../Pages/updateProfile/UpdateProfile";
-import UserProfile from "../Pages/UserProfile/UserProfile";
 
 const router = createBrowserRouter([
   {
@@ -36,10 +35,6 @@ const router = createBrowserRouter([
       {
         path: "/updateprofile",
         element: <UpdateProfile></UpdateProfile>,
-      },
-      {
-        path: "/userprofile",
-        element: <UserProfile></UserProfile>,
       },
       {
         path: "/login",

@@ -2,6 +2,9 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const { googleLogin, githubLogin, signInUser } = useContext(AuthContext);
@@ -13,9 +16,11 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
+        toast("Login successfully");
       })
       .catch((error) => {
         console.log(error.message);
+        toast(error.code)
       });
   };
 
@@ -23,6 +28,7 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         console.log(result.user);
+        toast("Login successfully");
       })
       .catch((error) => {
         console.log(error.message);
@@ -33,6 +39,7 @@ const Login = () => {
     githubLogin()
       .then((result) => {
         console.log(result.user);
+        toast("Login successfully");
       })
       .catch((error) => {
         console.log(error.message);
@@ -40,6 +47,9 @@ const Login = () => {
   };
   return (
     <div className="hero min-h-screen">
+      <Helmet>
+        <title>Login - IndusNet</title>
+      </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse gap-10">
         <div className="text-center lg:text-left w-[50%]">
           <img src="https://i.ibb.co/dfyvhrn/women-vector.jpg" alt="" />
@@ -107,6 +117,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );
 };

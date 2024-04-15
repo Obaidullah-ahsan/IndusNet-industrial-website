@@ -7,6 +7,7 @@ import auth from "../../Firebase/firebase.config";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaEyeSlash, FaRegEye } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -41,6 +42,9 @@ const Register = () => {
   };
   return (
     <div className="hero min-h-screen">
+      <Helmet>
+        <title>Register - IndusNet</title>
+      </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse gap-10">
         <div className="text-center lg:text-left w-[50%]">
           <img src="https://i.ibb.co/gvH64MK/men-vector.jpg" alt="" />

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useParams, useLoaderData } from "react-router-dom";
 
 const ServiceDetails = () => {
@@ -19,6 +20,9 @@ const ServiceDetails = () => {
   } = details;
   return (
     <div>
+      <Helmet>
+        <title>Service Details - IndusNet</title>
+      </Helmet>
       <div className="h-[450px] mx-5">
         <img className="h-full w-full rounded-xl" src={image} alt="" />
       </div>
