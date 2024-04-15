@@ -1,13 +1,42 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
-  // const { createUser } = useContext(AuthContext);
+  const { googleLogin, githubLogin, signInUser } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
     const { email, password } = data;
+    signInUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const handleGithubLogin = () => {
+    githubLogin()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
   return (
     <div className="hero min-h-screen">
@@ -28,7 +57,7 @@ const Login = () => {
                 placeholder="email"
                 className="input input-bordered"
                 required
-                {...register("eemail")}
+                {...register("email")}
               />
             </div>
             <div className="form-control">
@@ -63,10 +92,16 @@ const Login = () => {
           </form>
           <p className="text-center mx-auto font-semibold">Login with</p>
           <div className="flex gap-10 justify-around px-10 my-5">
-            <button className="btn btn-outline btn-primary flex-1 ">
+            <button
+              onClick={handleGoogleLogin}
+              className="btn btn-outline btn-primary flex-1 "
+            >
               Google
             </button>
-            <button className="btn btn-outline btn-secondary flex-1">
+            <button
+              onClick={handleGithubLogin}
+              className="btn btn-outline btn-secondary flex-1"
+            >
               Github
             </button>
           </div>

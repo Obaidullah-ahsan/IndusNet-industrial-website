@@ -7,6 +7,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import About from "../Pages/About us/About";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
+import PrivateRoutes from "../Routes/PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -22,13 +23,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/service/:id",
-        element: <ServiceDetails></ServiceDetails>,
+        element: <PrivateRoutes><ServiceDetails></ServiceDetails></PrivateRoutes>,
         loader: () =>
           fetch("https://obaidullah-ahsan.github.io/b9a9-jasondata/new.json"),
       },
       {
         path: "/about",
-        element: <About></About>,
+        element: <PrivateRoutes><About></About></PrivateRoutes>,
       },
       {
         path: "/login",

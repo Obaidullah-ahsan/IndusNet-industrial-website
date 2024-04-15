@@ -1,6 +1,14 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut();
+  };
+
   const navLinks = (
     <>
       <li>
@@ -51,26 +59,39 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
-      <div className="navbar-end flex gap-2">
-        <div
-          tabIndex={0}
-          role="button"
-          className="btn btn-ghost btn-circle avatar"
-        >
-          <div className="w-10 rounded-full">
-            <img
-              alt="Tailwind CSS Navbar component"
-              src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-            />
+      {user ? (
+        <div className="navbar-end flex gap-2">
+          <div className="tooltip tooltip-bottom z-10" data-tip={user.displayName}>
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src={`${user.photoURL}`}
+                />
+              </div>
+            </div>
           </div>
+          <button
+            onClick={handleLogout}
+            className="btn bg-[#587187] text-white font-bold text-base"
+          >
+            Logout
+          </button>
         </div>
-        <Link
-          to="/login"
-          className="btn bg-[#587187] text-white font-bold text-base"
-        >
-          Login
-        </Link>
-      </div>
+      ) : (
+        <div className="navbar-end flex gap-2">
+          <Link
+            to="/login"
+            className="btn bg-[#587187] text-white font-bold text-base"
+          >
+            Login
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import auth from "../../Firebase/firebase.config";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -9,12 +13,22 @@ const Register = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    const { email, password } = data;
-    createUser(email,password)
-    .then(result => {
-      console.log(result.user);
-    })
-    .catch(error => console.log(error))
+    const { email, password, name, photourl } = data;
+
+    if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)){
+      return toast('Password must have an Uppercase, Lowercase, Length must be 6 character')
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        updateProfile(auth.currentUser, {
+          displayName: `${name}`,
+          photoURL: `${photourl}`,
+        });
+        console.log(result.user);
+        toast('Register successfully')
+      })
+      .catch((error) => console.log(error));
   };
   return (
     <div className="hero min-h-screen">
@@ -93,6 +107,7 @@ const Register = () => {
           </form>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );
 };
