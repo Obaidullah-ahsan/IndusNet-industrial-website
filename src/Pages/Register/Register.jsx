@@ -1,22 +1,26 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import auth from "../../Firebase/firebase.config";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const [toggle, setToggle] = useState(false);
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
     const { email, password, name, photourl } = data;
 
-    if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)){
-      return toast('Password must have an Uppercase, Lowercase, Length must be 6 character')
+    if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)) {
+      return toast(
+        "Password must have an Uppercase, Lowercase, Length must be 6 character"
+      );
     }
 
     createUser(email, password)
@@ -26,9 +30,14 @@ const Register = () => {
           photoURL: `${photourl}`,
         });
         console.log(result.user);
-        toast('Register successfully')
+        toast("Register successfully");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const handleShowHide = () => {
+    setToggle(!toggle);
   };
   return (
     <div className="hero min-h-screen">
@@ -80,18 +89,26 @@ const Register = () => {
                 {...register("email")}
               />
             </div>
-            <div className="form-control">
+            <div className="form-control placeholder relative">
               <label className="label">
                 <span className="label-text font-semibold">Password</span>
               </label>
               <input
-                type="password"
+                type={`${toggle ? "text" : "password"}`}
                 name="password"
                 placeholder="password"
-                className="input input-bordered"
+                className="input input-bordered "
                 required
                 {...register("password")}
               />
+              <p
+                onClick={() => handleShowHide()}
+                className="absolute right-3 top-[52px] hover:cursor-pointer"
+              >
+                {
+                  toggle ?  <FaRegEye />:<FaEyeSlash />
+                }
+              </p>
             </div>
             <div className="form-control mt-6">
               <button className="btn bg-[#4583A8] text-white font-bold text-lg">
@@ -107,7 +124,7 @@ const Register = () => {
           </form>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

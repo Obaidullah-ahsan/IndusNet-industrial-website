@@ -18,10 +18,10 @@ const Navbar = () => {
         <NavLink to="/about">About</NavLink>
       </li>
       <li>
-        <NavLink to="/updateprofile">Update Profile</NavLink>
+        <NavLink to="/userprofile">User profile</NavLink>
       </li>
       <li>
-        <NavLink to="/userprofile">User profile</NavLink>
+        <NavLink to="/updateprofile">Update Profile</NavLink>
       </li>
     </>
   );
@@ -61,7 +61,10 @@ const Navbar = () => {
       </div>
       {user ? (
         <div className="navbar-end flex gap-2">
-          <div className="tooltip tooltip-bottom z-10" data-tip={user.displayName}>
+          <div
+            className="tooltip tooltip-bottom z-10"
+            data-tip={user.displayName}
+          >
             <div
               tabIndex={0}
               role="button"
