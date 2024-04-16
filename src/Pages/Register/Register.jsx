@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -10,9 +10,10 @@ import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, setReload } = useContext(AuthContext);
   const [toggle, setToggle] = useState(false);
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -29,12 +30,18 @@ const Register = () => {
         updateProfile(auth.currentUser, {
           displayName: `${name}`,
           photoURL: `${photourl}`,
-        });
+        })
+          .then(() => {
+            setReload(true);
+          })
+          .catch(() => {});
         console.log(result.user);
         toast("Register successfully");
+        navigate("/")
       })
       .catch((error) => {
         console.log(error);
+        toast.error(error.code);
       });
   };
   const handleShowHide = () => {
@@ -109,9 +116,7 @@ const Register = () => {
                 onClick={() => handleShowHide()}
                 className="absolute right-3 top-[52px] hover:cursor-pointer"
               >
-                {
-                  toggle ?  <FaRegEye />:<FaEyeSlash />
-                }
+                {toggle ? <FaRegEye /> : <FaEyeSlash />}
               </p>
             </div>
             <div className="form-control mt-6">

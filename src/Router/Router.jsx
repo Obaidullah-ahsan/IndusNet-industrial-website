@@ -5,10 +5,10 @@ import Root from "../layout/Root";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
-import About from "../Pages/About us/About";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import PrivateRoutes from "../Routes/PrivateRoutes";
 import UpdateProfile from "../Pages/updateProfile/UpdateProfile";
+import Support from "../Pages/Support/Support";
 
 const router = createBrowserRouter([
   {
@@ -29,12 +29,12 @@ const router = createBrowserRouter([
           fetch("https://obaidullah-ahsan.github.io/b9a9-jasondata/new.json"),
       },
       {
-        path: "/about",
-        element: <PrivateRoutes><About></About></PrivateRoutes>,
+        path: "/support",
+        element: <PrivateRoutes><Support></Support></PrivateRoutes>,
       },
       {
         path: "/updateprofile",
-        element: <UpdateProfile></UpdateProfile>,
+        element: <PrivateRoutes><UpdateProfile></UpdateProfile></PrivateRoutes>,
       },
       {
         path: "/login",

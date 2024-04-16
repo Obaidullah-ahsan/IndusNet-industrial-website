@@ -11,7 +11,7 @@ const Home = () => {
         <title>Home - IndusNet</title>
       </Helmet>
       <Banner></Banner>
-      <div className="text-center mx-auto md:max-w-3xl mb-10">
+      <div className="text-center mx-auto md:max-w-3xl px-2 mb-10">
         <h2 className="text-4xl font-bold mb-4">Our Service</h2>
         <p className="">
           We specialize in providing a comprehensive range of industrial

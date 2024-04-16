@@ -15,7 +15,7 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/about">About</NavLink>
+        <NavLink to="/support">Support</NavLink>
       </li>
       <li>
         <NavLink to="/updateprofile">Update Profile</NavLink>
@@ -23,7 +23,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 px-6">
+    <div className="navbar bg-base-100 md:px-6">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -44,10 +44,8 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            {navLinks}
-          </ul>
+            className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box w-52"
+          >{navLinks}</ul>
         </div>
         <Link to="/" className="btn btn-ghost text-2xl font-bold">
           IndusNet

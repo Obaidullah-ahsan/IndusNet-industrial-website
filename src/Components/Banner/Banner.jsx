@@ -11,7 +11,7 @@ import 'animate.css';
 const Banner = () => {
   const bannerContent = (
     <div>
-      <div className="max-w-xl pl-20 pt-32 space-y-6">
+      <div className="md:max-w-xl px-5 md:pl-20 pt-32 space-y-6">
         <h2 className="text-4xl font-bold text-white animate__animated animate__fadeInDown">
           IndusNet Industries
         </h2>
@@ -30,7 +30,7 @@ const Banner = () => {
     </div>
   );
   return (
-    <div className="mx-5 mb-12">
+    <div className="mx-2 md:mx-5 mb-12">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

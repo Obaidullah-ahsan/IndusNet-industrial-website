@@ -8,7 +8,7 @@ const Footer = () => {
           <p>Number : +1 5589 55488 55</p>
           <p>Email : info@example.com</p>
         </aside>
-        <div className="flex gap-16 w-1/3">
+        <div className="flex flex-col gap-16 w-1/3">
           <nav className="flex flex-col">
             <h6 className="footer-title">Services</h6>
             <a className="link link-hover">Branding</a>

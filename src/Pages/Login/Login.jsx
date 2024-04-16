@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,18 +9,20 @@ import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const { googleLogin, githubLogin, signInUser } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
+  
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
     const { email, password } = data;
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
         toast("Login successfully");
+        navigate("/")
       })
       .catch((error) => {
         console.log(error.message);
-        toast(error.code)
+        toast.error(error.code);
       });
   };
 
@@ -29,6 +31,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         toast("Login successfully");
+        navigate("/")
       })
       .catch((error) => {
         console.log(error.message);
@@ -40,6 +43,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         toast("Login successfully");
+        navigate("/")
       })
       .catch((error) => {
         console.log(error.message);
@@ -117,7 +121,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };
