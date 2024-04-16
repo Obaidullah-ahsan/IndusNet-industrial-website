@@ -38,7 +38,7 @@ const ServiceDetails = () => {
         <p className="font-semibold mb-2">Status : {status}</p>
         <div className="flex gap-2">
           <p className="text-xl font-bold">Facilities : </p>
-          <ul className="flex flex-col md:flex-row">
+          <ul className="flex flex-col lg:flex-row">
             {facilities.map((facilitie, idx) => (
               <li className="p-1 " key={idx}>
                 <span className="bg-[#bcc8d2] rounded-lg text-[#4a6e8d] font-bold p-1">
