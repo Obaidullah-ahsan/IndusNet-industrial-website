@@ -23,7 +23,7 @@ const ServiceDetails = () => {
       <Helmet>
         <title>Service Details - IndusNet</title>
       </Helmet>
-      <div className="h-[450px] mx-5">
+      <div className="h-60 md:h-[450px] mx-5">
         <img className="h-full w-full rounded-xl" src={image} alt="" />
       </div>
       <div className="mx-6 my-6 px-4">
